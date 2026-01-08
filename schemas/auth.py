@@ -8,3 +8,8 @@ class TokenResponse(SQLModel):
 
 class RefreshRequest(SQLModel):
     refresh_token : str
+
+
+class SignupRequest(SQLModel):
+    email : str 
+    password : str

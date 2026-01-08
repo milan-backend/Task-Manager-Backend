@@ -5,6 +5,7 @@ from database import get_session
 from models.user import User
 from models.refresh_token import RefreshToken
 from schemas.auth import TokenResponse,RefreshRequest
+from schemas.auth import SignupRequest
 
 from passlib.context import CryptContext
 from jose import jwt
@@ -23,6 +24,8 @@ pwd_context = CryptContext(
 
 
 def hash_password(password :str) -> str:
+    if not password:
+        raise ValueError("Password Cannot be empty.")
     return pwd_context.hash(password)
 
 # For VERIFY HASHED PASSWORD
@@ -56,12 +59,11 @@ def create_refresh_token() -> str:
 
 @router.post("/signup")
 def signup(
-    email : str,
-    password : str,
+    data: SignupRequest,
     session:Session = Depends(get_session)
 ):
     
-    existing_user = session.exec(select(User).where(User.email==email)).first()
+    existing_user = session.exec(select(User).where(User.email==data.email)).first()
 
     if existing_user:
         raise HTTPException(
@@ -70,8 +72,8 @@ def signup(
         )
     
     user = User(
-        email = email,
-        hashed_password= hash_password(password)
+        email = data.email,
+        hashed_password= hash_password(data.password)
     )
 
     session.add(user)
