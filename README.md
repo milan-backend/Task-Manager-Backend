@@ -116,16 +116,6 @@ Through this project, I learned:
 
 ---
 
-##  Running Locally
-
-```bash
-git clone <repository-url>
-cd task-manager-backend
-python -m venv venv
-source venv/bin/activate # Windows: venv\Scripts\activate
-pip install -r requirements.txt
-
-
 ## 🚀 Running Locally
 
 ```bash
