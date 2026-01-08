@@ -126,12 +126,22 @@ source venv/bin/activate # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 
 
-## 🚀 How to Run Locally
+## 🚀 Running Locally
 
 ```bash
-git clone https://github.com/milan-backend/Task-Manager-Backend.git
+git clone https://github.com/milan-backed/Task-Manager-Backend.git
 cd Task-Manager-Backend
+
 python -m venv venv
-source venv/bin/activate # Windows: venv\Scripts\activate
+# Windows
+venv\Scripts\activate
+# macOS / Linux
+source venv/bin/activate
+
 pip install -r requirements.txt
+
 uvicorn main:app --reload
+
+Once running, open:
+API Docs: http://127.0.0.1:8000/docs
+OpenAPI JSON: http://127.0.0.1:8000/openapi.json
