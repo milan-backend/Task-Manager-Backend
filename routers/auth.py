@@ -18,7 +18,7 @@ router = APIRouter(prefix="/auth",tags=["auth"])
 # FOR HASHED PASSWORD
 
 pwd_context = CryptContext(
-    schemes=["bcrypt"],
+    schemes=["argon2"],
     deprecated="auto"
     )
 
