@@ -124,3 +124,14 @@ cd task-manager-backend
 python -m venv venv
 source venv/bin/activate # Windows: venv\Scripts\activate
 pip install -r requirements.txt
+
+
+## 🚀 How to Run Locally
+
+```bash
+git clone https://github.com/milan-backend/Task-Manager-Backend.git
+cd Task-Manager-Backend
+python -m venv venv
+source venv/bin/activate # Windows: venv\Scripts\activate
+pip install -r requirements.txt
+uvicorn main:app --reload
