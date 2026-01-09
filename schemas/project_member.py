@@ -1,5 +1,5 @@
-from sqlmodel import SQLModel
+from pydantic import BaseModel
 
-class ProjectMemberCreate(SQLModel):
+class ProjectMemberCreate(BaseModel):
 
     user_id : int

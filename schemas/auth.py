@@ -1,15 +1,15 @@
-from sqlmodel import SQLModel
+from pydantic import BaseModel,EmailStr
 
-class TokenResponse(SQLModel):
+class TokenResponse(BaseModel):
     access_token : str 
     refresh_token : str
     token_type : str = "Bearer"
 
 
-class RefreshRequest(SQLModel):
+class RefreshRequest(BaseModel):
     refresh_token : str
 
 
-class SignupRequest(SQLModel):
-    email : str 
+class SignupRequest(BaseModel):
+    email : EmailStr
     password : str

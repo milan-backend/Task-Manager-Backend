@@ -1,14 +1,14 @@
-from sqlmodel import SQLModel
-from typing import Optional
+from pydantic import BaseModel
 from core.enums import TaskStatus
+from typing import Optional
 
-class TaskCreate(SQLModel):
+class TaskCreate(BaseModel):
     project_id : int
     title : str
     description : Optional[str] = None
 
 
-class TaskResponse(SQLModel):
+class TaskResponse(BaseModel):
     id : int
     title : str
     description : Optional[str] = None
@@ -18,7 +18,7 @@ class TaskResponse(SQLModel):
     assigned_to : Optional[int] = None
 
 
-class TaskUpdate(SQLModel):
+class TaskUpdate(BaseModel):
     status : Optional[TaskStatus] = None
     assigned_to : Optional[int] = None
 
